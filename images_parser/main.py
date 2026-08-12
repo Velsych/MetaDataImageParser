@@ -10,10 +10,10 @@ load_dotenv()
 
 model_name = os.getenv('MODEL_NAME')
 API_LINK = os.getenv('API_LINK')
-
+ROOT_PATH = os.getenv('ROOT_PATH')
 
 #Ставлю основные папки
-root_dir = pathlib.Path(__file__).resolve().parent
+root_dir = pathlib.Path(ROOT_PATH).resolve().parent
 dirs = [x[1] for x in os.walk(root_dir)] # хавает только директории в основном файле
 image_path = pathlib.Path.joinpath(root_dir,'images') # путь для картинок
 image_folder = [x[2] for x in os.walk(image_path)] # перебор картинок
