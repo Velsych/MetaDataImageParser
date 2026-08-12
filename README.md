@@ -1,0 +1,1 @@
+Little piece of code what my friend asked me to do.
