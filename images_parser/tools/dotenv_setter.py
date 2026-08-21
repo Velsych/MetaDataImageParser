@@ -10,6 +10,7 @@ def set_env(envpath):
         for line in file:
             lines.append(line)
     for i,lane in enumerate(lines):
+        main_file.replace('\\','/')
         if 'load_dotenv(dotenv_path="")' in lane:
             lines[i] = f'load_dotenv(dotenv_path="{envpath}")'
             break
