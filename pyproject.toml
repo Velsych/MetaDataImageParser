@@ -23,3 +23,4 @@ packages = ["images_parser"]
 [project.scripts]
 parse = "images_parser.scripts.app:main"
 manage = "images_parser.scripts.tag:main"
+setenv = "images_parser.scripts.env:main"

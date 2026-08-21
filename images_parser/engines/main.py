@@ -9,8 +9,7 @@ import logging
 
 
 # config = dotenv_values(".env")
-load_dotenv(dotenv_path="") # почему то 100% указывать путь до венва
-
+load_dotenv(dotenv_path="images_parser/.env")
 
 
 logging.basicConfig( format = u'%(filename)s# %(levelname)-8s [%(asctime)s]  %(message)s',level=logging.INFO)
