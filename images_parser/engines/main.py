@@ -9,7 +9,9 @@ import logging
 
 
 # config = dotenv_values(".env")
-load_dotenv(dotenv_path="")
+current_dir = pathlib.Path.cwd()
+env_path = current_dir / '.env'
+load_dotenv(dotenv_path=env_path)
 
 logging.basicConfig( format = u'%(filename)s# %(levelname)-8s [%(asctime)s]  %(message)s',level=logging.INFO)
 
@@ -27,7 +29,7 @@ timeout_connect = []
 faulty_pics = []
 
 #Ставлю основные папки
-current_dir = pathlib.Path.cwd()
+
 root_dir = current_dir / "images_parser"
 dirs = [x[1] for x in os.walk(root_dir)] # хавает только директории в основном файле
 image_path = pathlib.Path.joinpath(root_dir,'images') # путь для картинок
