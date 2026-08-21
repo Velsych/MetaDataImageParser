@@ -9,7 +9,7 @@ import logging
 
 
 # config = dotenv_values(".env")
-load_dotenv(dotenv_path="images_parser/.env")
+load_dotenv(dotenv_path="")
 
 
 logging.basicConfig( format = u'%(filename)s# %(levelname)-8s [%(asctime)s]  %(message)s',level=logging.INFO)
