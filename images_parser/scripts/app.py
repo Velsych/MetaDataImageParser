@@ -1,7 +1,7 @@
-from images_parser.main import generate_text_into_better_text,check_directiry
+from images_parser.engines.main import generate_text_into_better_text,check_directiries
 
 def main():  
-    check_directiry()
+    check_directiries()
     generate_text_into_better_text()
     print('Все картинки обработаны без ошибок')
 
