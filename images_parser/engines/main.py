@@ -49,7 +49,11 @@ def check_directiries():
 
 def clear_text(request_text):
     logging.info('Cleaning text')
-    text = request_text.split('. ')
+    for i in request_text:
+        if i['type'] == "message":
+            message_text = i['content']
+            break
+    text = message_text.split('. ')
     return text
 
 def write_down_readable_file(text,name):
@@ -89,13 +93,16 @@ def send_api_request(model_name,prompt,name):
     else:
         logging.info('Got answer, parsing...')
         response = request.json()
-        return clear_text(response['output'][0]['content']),False
+        return clear_text(response),False
 
 def get_image_metadata(image_path):
     try:
         with Image.open(image_path) as img:
             metadata = img.info
             for _, value in metadata.items():
+                if type(value) is int:
+                    logging.warning("Битая картинка")
+                    raise OSError
                 closer = value.find('Negative prompt:')
                 prompt = value[:closer]
     except OSError as e:
