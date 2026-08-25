@@ -49,7 +49,8 @@ def check_directiries():
 
 def clear_text(request_text):
     logging.info('Cleaning text')
-    for i in request_text:
+    for i in request_text["output"]:
+        print(i)
         if i['type'] == "message":
             message_text = i['content']
             break
