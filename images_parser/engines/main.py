@@ -50,7 +50,6 @@ def check_directiries():
 def clear_text(request_text):
     logging.info('Cleaning text')
     for i in request_text["output"]:
-        print(i)
         if i['type'] == "message":
             message_text = i['content']
             break
@@ -74,7 +73,7 @@ def write_down_text_file(text,name):
     filename = pathlib.Path.joinpath(desk_path,name+'.txt')
     if name in desk[0]:
         filename = pathlib.Path.joinpath(desk_path,name+'new.txt')
-    with open(filename,'w') as file:
+    with open(filename,'w',encoding="utf-8") as file:
             file.write(text+".\n")
     logging.info(f'File {name}.txt created')
     return
